@@ -1,7 +1,8 @@
 function App() {
 
   return (
-    <div></div>
+    <div className="flex flex-col gap-[170px] justify-center">
+    </div>
   )
 }
 
