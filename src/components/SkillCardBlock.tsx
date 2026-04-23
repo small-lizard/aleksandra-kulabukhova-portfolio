@@ -11,8 +11,7 @@ const SkillCardBlock: React.FC<SkillCardBlockProps> = ({
 }) => {
     return (
         <div
-            className={`font-dmsans h-[40px] px-[20px] inline-flex items-center justify-center
-            text-text border border-text rounded-[10px]
+            className={`font-dmsans text-[14px] h-[40px] px-[20px] inline-flex items-center justify-center text-text border border-text rounded-[10px]
             ${className}`}
         >
             {text}

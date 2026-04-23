@@ -10,6 +10,7 @@ export default {
         primary: "#8F5CFB",
         accent: "#96F21B",
         dark: "#403E3E",
+        light: "#EEEEEE",
         text: {
           DEFAULT: "#EEEEEE",
           secondary: "#6F6B6B",

@@ -17,10 +17,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative flex flex-col p-[40px] rounded-[20px] bg-dark text-text ${className}`}
+      className={`relative min-h-[280px] flex flex-col p-[40px] rounded-[20px] bg-dark text-text ${className}`}
     >
       <div className="flex justify-between items-start mb-[20px]">
-        <h3 className="font-dmsans text-[20px] font-semibold text-text">
+        <h3 className="font-dmsans text-[20px] font-semibold">
           {title}
         </h3>
 
@@ -29,8 +29,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         </span>
       </div>
 
-      <div className="mt-auto pr-[120px]">
-        <p className="font-dmsans text-[16px] text-text">
+      <div className={`mt-auto ${image ? "pr-[45%]" : ""}`}>
+        <p className="font-dmsans text-[16px]">
           {text}
         </p>
       </div>
@@ -39,7 +39,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <img
           src={image}
           alt={title}
-          className="absolute bottom-0 right-[40px] z-10"
+          className="absolute bottom-0 right-[40px] z-10 h-[200px] w-auto rounded-tl-[10px] rounded-tr-[10px]"
         />
       )}
     </div>

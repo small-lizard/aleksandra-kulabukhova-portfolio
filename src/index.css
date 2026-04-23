@@ -3,27 +3,79 @@
 @tailwind utilities;
 
 @layer base {
-    html,
-    body,
-    #root {
-        @apply min-h-dvh bg-[#201F1F];
-    }
+
+  html,
+  body,
+  #root {
+    @apply min-h-dvh bg-[#201F1F];
+  }
 }
 
 /* Dela Gothic One */
 @font-face {
-    font-family: 'DelaGothicOne';
-    src: url('./assets/fonts/DelaGothicOne-Regular.woff2') format('woff2'),
-        url('./assets/fonts/DelaGothicOne-Regular.woff') format('woff'),
-        url('./assets/fonts/DelaGothicOne-Regular.ttf') format('truetype');
-    font-style: normal;
+  font-family: 'DelaGothicOne';
+  src: url('./assets/fonts/DelaGothicOne-Regular.woff2') format('woff2'),
+    url('./assets/fonts/DelaGothicOne-Regular.woff') format('woff'),
+    url('./assets/fonts/DelaGothicOne-Regular.ttf') format('truetype');
+  font-style: normal;
 }
 
 /* DM Sans */
 @font-face {
-    font-family: 'DM Sans';
-    src: url('./assets/fonts/DMSans-VariableFont_opsz,wght.woff2') format('woff2'),
-        url('./assets/fonts/DMSans-VariableFont_opsz_wght.woff') format('woff'),
-        url('./assets/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
-    font-style: normal;
+  font-family: 'DM Sans';
+  src: url('./assets/fonts/DMSans-VariableFont_opsz,wght.woff2') format('woff2'),
+    url('./assets/fonts/DMSans-VariableFont_opsz_wght.woff') format('woff'),
+    url('./assets/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+.embla {
+  max-width: 100%;
+  margin: auto;
+
+  --slide-size: auto;
+}
+
+.embla__viewport {
+  padding-left: 280px;
+  padding-right: 100px;
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: 20px;
+}
+
+.embla__controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.embla__buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.embla__button {
+  background-color: #403E3E;
+  touch-action: manipulation;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

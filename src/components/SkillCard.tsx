@@ -15,10 +15,10 @@ const SkillCard: React.FC<SkillCardProps> = ({
 }) => {
     return (
         <div
-            className={`${width} h-[440px] p-[40px] rounded-[20px] transition-colors
+            className={`${width} min-h-[440px] p-[40px] rounded-[20px] transition-colors
             ${
                 isActive
-                    ? "bg-primary border-transparent"
+                    ? "bg-primary"
                     : "bg-transparent border-2 border-text"
             }
             ${className}`}

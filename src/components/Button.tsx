@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const variants = {
     primary:
-      "h-[50px] px-[26px] gap-[15px] font-bold text-[16px] bg-primary text-text",
+      "h-[50px] px-[26px] gap-[15px] font-bold text-[16px] text-text",
     secondary:
       "h-[40px] px-[20px] font-medium text-[14px] bg-dark text-text",
   };
