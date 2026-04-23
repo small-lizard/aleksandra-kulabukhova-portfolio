@@ -1,7 +1,7 @@
-import Contacts from "./pages/Contacts";
-import Hero from "./pages/Hero"
-import Projects from "./pages/Projects";
-import Skills from "./pages/Skills"
+import Contacts from "./sections/Contacts";
+import Hero from "./sections/Hero"
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills"
 
 function App() {
 

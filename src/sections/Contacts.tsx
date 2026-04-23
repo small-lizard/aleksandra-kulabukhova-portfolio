@@ -13,8 +13,8 @@ interface ContactBlockProps {
 
 const ContactBlock: React.FC<ContactBlockProps> = ({ label, value }) => {
     return (
-        <div className="flex flex-col text-text">
-            <p className="font-dmsans text-[20px] mb-[10px]">
+        <div className="flex flex-col text-text gap-[15px]">
+            <p className="font-dmsans text-[20px]">
                 {label}
             </p>
             <p className="font-dmsans font-bold text-[32px]">

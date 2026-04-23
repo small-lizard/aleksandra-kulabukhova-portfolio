@@ -32,13 +32,10 @@
 .embla {
   max-width: 100%;
   margin: auto;
-
   --slide-size: auto;
 }
 
 .embla__viewport {
-  padding-left: 280px;
-  padding-right: 100px;
   overflow: hidden;
 }
 

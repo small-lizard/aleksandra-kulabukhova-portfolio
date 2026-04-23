@@ -24,7 +24,7 @@ const Project1: React.FC = () => {
                     <div className="flex flex-wrap justify-end gap-[20px]">
                         <Button text="GitHub (frontend)" className="bg-dark text-text" />
                         <Button text="GitHub (backend)" className="bg-dark text-text" />
-                        <Button text="APP" className="bg-primary" />
+                        <Button text="APP" className="bg-primary text-text" />
                     </div>
                 </div>
 
