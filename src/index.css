@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-
   html,
   body,
   #root {
     @apply min-h-dvh bg-[#201F1F];
+  }
+
+  h2 {
+    @apply font-delagothicone uppercase leading-[1.45] text-text xl:text-[48px] lg:text-[42px] xl:pl-[40px] lg:pl-[20px] xl:mb-[70px] lg:mb-[50px];
   }
 }
 

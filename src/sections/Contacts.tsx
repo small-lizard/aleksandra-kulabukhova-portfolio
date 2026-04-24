@@ -27,25 +27,28 @@ const ContactBlock: React.FC<ContactBlockProps> = ({ label, value }) => {
 const Contacts: React.FC = () => {
     const contacts = [
         { label: "Telegram", value: "@small-lizard" },
-        { label: "Email", value: "kulabukhova.alex@gmail.com" },
         { label: "WhatsApp", value: "+79288825399" },
+        { label: "Email", value: "kulabukhova.alex@gmail.com" },
     ];
 
     return (
         <Container>
-            <h2 className="font-delagothicone uppercase text-[48px] leading-[1.45] text-text pl-[40px] mb-[70px]">
+            <h2>
                 Контакты
             </h2>
 
-            <div className="relative bg-primary rounded-[24px] min-h-[380px] px-[100px] py-[60px] mb-[40px] overflow-hidden flex flex-col justify-between h-full">
+            <div className="relative bg-primary rounded-[24px] min-h-[380px] 
+            xl:px-[100px] px-[60px]
+            py-[60px] mb-[40px] overflow-hidden 
+            flex flex-col gap-[120px]">
                 <img
                     src={greenArrow}
                     alt="Decorative background icon"
-                    className="absolute top-[230px] left-[100px] pointer-events-none w-[180px] h-[180px]"
+                    className="absolute bottom-[-20px] left-[100px] pointer-events-none w-[180px] h-[180px]"
                 />
 
 
-                    <div className="flex justify-between">
+                    <div className="flex justify-between flex-wrap gap-[40px] xl:flex-nowrap">
                         {contacts.map((contact) => (
                             <ContactBlock
                                 key={contact.label}

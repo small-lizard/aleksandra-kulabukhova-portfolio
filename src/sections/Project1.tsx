@@ -9,21 +9,38 @@ import Mobile from "../assets/images/mobile.png";
 import Otp from "../assets/images/otp.png";
 import Validation from "../assets/images/validation.png";
 
-
-
+// xl: lg:
 
 const Project1: React.FC = () => {
     return (
-        <div className="w-full mx-auto border-[2px] border-light rounded-[30px] px-[40px] py-[40px] flex flex-col gap-[60px]">
+        <div className="w-full mx-auto border-[2px] border-light rounded-[30px] flex flex-col 
+        xl:px-[40px] lg:px-[20px] 
+        xl:py-[40px] lg:py-[20px]
+        xl:gap-[60px] lg:gap-[40px]">
             <div>
-                <div className="flex items-start justify-between mb-[30px]">
-                    <h3 className="font-delagothicone uppercase text-[36px] text-accent">
+                <div className="flex  justify-between mb-[30px]">
+                    <h3 className="font-delagothicone uppercase 
+                    xl:text-[36px] lg:text-[32px]
+                    text-accent">
                         Трекер привычек
                     </h3>
 
-                    <div className="flex flex-wrap justify-end gap-[20px]">
-                        <Button text="GitHub (frontend)" className="bg-dark text-text" />
-                        <Button text="GitHub (backend)" className="bg-dark text-text" />
+                    <div className="flex justify-end gap-[20px]">
+                        <Button
+                            text="GitHub"
+                            className="bg-dark text-text w-full xl:hidden"
+                        />
+
+                        <Button
+                            text="GitHub (frontend)"
+                            className="bg-dark text-text hidden xl:inline-flex"
+                        />
+
+                        <Button
+                            text="GitHub (backend)"
+                            className="bg-dark text-text hidden xl:inline-flex"
+                        />
+
                         <Button text="APP" className="bg-primary text-text" />
                     </div>
                 </div>
@@ -52,49 +69,53 @@ const Project1: React.FC = () => {
                 />
 
                 <img
-                    src={Mobile}    
+                    src={Mobile}
                     alt=""
                     className="h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px]  z-10"
                 />
             </div>
 
             <div className="flex flex-col gap-[40px]">
-                <h3 className="font-delagothicone uppercase text-[28px] text-text">
+                <h4 className="font-delagothicone uppercase 
+                xl:text-[28px] lg:text-[24px]
+                text-text">
                     Стек
-                </h3>
-                <div className="flex flex-col gap-[30px] w-full">
-                    {/* верхний ряд */}
-                    <div className="flex justify-between w-full">
-                        <div className="flex flex-col gap-[20px]">
-                            <span className="text-text-secondary">//frontend</span>
-                            <div className="flex flex-wrap gap-[10px]">
-                                {["TS", "React", "Redux Toolkit", "React Hook Form", "i18n", "Zod"].map((t) => (
-                                    <SkillCardBlock key={t} text={t} />
-                                ))}
-                            </div>
-                        </div>
+                </h4>
 
-                        <div className="flex flex-col gap-[20px]">
-                            <span className="text-text-secondary">//backend</span>
-                            <div className="flex flex-wrap gap-[10px]">
-                                {["Node.js", "Express"].map((t) => (
-                                    <SkillCardBlock key={t} text={t} />
-                                ))}
-                            </div>
-                        </div>
+                <div className="flex w-full flex-wrap xl:gap-[60px] lg:gap-[40px]">
 
-                        <div className="flex flex-col gap-[20px]">
-                            <span className="text-text-secondary">//database</span>
-                            <div className="flex flex-wrap gap-[10px]">
-                                {["MongoDB", "Mongoose"].map((t) => (
-                                    <SkillCardBlock key={t} text={t} />
-                                ))}
-                            </div>
+                    {/* frontend */}
+                    <div className="flex flex-col gap-[20px]">
+                        <span className="text-text-secondary">//frontend</span>
+                        <div className="flex flex-wrap gap-[10px]">
+                            {["TS", "React", "Redux Toolkit", "React Hook Form", "i18n", "Zod"].map((t) => (
+                                <SkillCardBlock key={t} text={t} />
+                            ))}
                         </div>
                     </div>
 
-                    {/* нижний ряд */}
-                    <div className="flex flex-col gap-[20px] w-full">
+                    {/* backend */}
+                    <div className="flex flex-col gap-[20px]">
+                        <span className="text-text-secondary">//backend</span>
+                        <div className="flex flex-wrap gap-[10px]">
+                            {["Node.js", "Express"].map((t) => (
+                                <SkillCardBlock key={t} text={t} />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* database */}
+                    <div className="flex flex-col gap-[20px]">
+                        <span className="text-text-secondary">//database</span>
+                        <div className="flex flex-wrap gap-[10px]">
+                            {["MongoDB", "Mongoose"].map((t) => (
+                                <SkillCardBlock key={t} text={t} />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* infrastructure */}
+                    <div className="flex flex-col gap-[20px]">
                         <span className="text-text-secondary">//infrastructure</span>
                         <div className="flex flex-wrap gap-[10px]">
                             {["Docker", "Render", "MongoDB Atlas", "Vercel"].map((t) => (
@@ -102,6 +123,7 @@ const Project1: React.FC = () => {
                             ))}
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -113,9 +135,11 @@ const Project1: React.FC = () => {
                 />
                 {/* ROW 1 */}
                 <div className="flex justify-between gap-[20px]">
-                    <h3 className="font-delagothicone uppercase text-[28px] text-text">
+                    <h4 className="font-delagothicone uppercase 
+                    xl:text-[28px] lg:text-[24px]
+                    text-text">
                         Фичи
-                    </h3>
+                    </h4>
                     <div className="w-[670px] ">
                         <FeatureCard
                             title="Authentication"
@@ -134,7 +158,9 @@ const Project1: React.FC = () => {
                 </div>
 
                 {/* ROW 3 */}
-                <div className="grid grid-cols-[1.6fr_1.4fr] gap-[20px]">
+                <div className="grid 
+                xl:grid-cols-[1.6fr_1.4fr] lg:grid-cols-[1.8fr_1.2fr]
+                gap-[20px]">
                     <FeatureCard
                         title="Validation"
                         text="Валидация пользовательских данных с использованием React Hook Form и Zod."

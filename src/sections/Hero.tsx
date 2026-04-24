@@ -17,26 +17,35 @@ const Hero: React.FC = () => {
                     <div className="z-10 w-full flex flex-col mt-[125px]">
 
                         <h1 className="relative flex flex-col gap-[30px]">
-                            <span className="font-delagothicone uppercase leading-[0.92] text-[60px] tracking-[-0.02em] text-text-accent self-start">
+                            <span className="font-delagothicone uppercase leading-[0.92] 
+                            xl:text-[60px] lg:text-[50px]
+                            tracking-[-0.02em] text-text-accent self-start">
                                 Александра Кулабухова
                             </span>
 
-                            <span className="font-delagothicone uppercase leading-[0.92] text-[60px] tracking-[-0.02em] text-text self-end">
+                            <span className="font-delagothicone uppercase leading-[0.92] 
+                            xl:text-[60px] lg:text-[50px]
+                            tracking-[-0.02em] text-text self-end">
                                 Full-stack Разработчик
                             </span>
                             <img
                                 src={pinkEye}
                                 alt=""
-                                className="pointer-events-none absolute left-[20%] top-[200px] z-20 rotate-[-15.61deg]"
+                                className="pointer-events-none absolute 
+                                left-[20%] lg:left-[10%]
+                                top-[200px] 
+                                z-20 rotate-[-15.61deg]"
                             />
                             <img
                                 src={violetFlower}
                                 alt=""
-                                className="pointer-events-none absolute right-[30%] top-[-46%] z-20 rotate-[15deg]"
+                                className="pointer-events-none absolute right-[30%] top-[-50%] z-20 rotate-[15deg]"
                             />
                         </h1>
 
-                        <div className="relative mt-[30px] w-[520px] max-w-full ml-auto mr-[120px]">
+                        <div className="relative mt-[30px] w-[520px] max-w-full ml-auto 
+                        xl:mr-[120px] lg:mr-[10px] 
+                        ">
                             <div className="font-dmsans text-[16px] leading-[1.45]">
                                 <p className="text-text mb-[20px]">
                                     Сочетаю технический подход с пониманием пользовательского
@@ -53,7 +62,7 @@ const Hero: React.FC = () => {
                             <img
                                 src={yellowSmile}
                                 alt=""
-                                className="pointer-events-none absolute right-[-10%] bottom-[-280px] z-20 rotate-[13.76deg]"
+                                className="pointer-events-none absolute xl:right-[-10%] lg:right-[-1%] bottom-[-280px] z-20 rotate-[13.76deg]"
                             />
                         </div>
 

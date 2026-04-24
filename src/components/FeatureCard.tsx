@@ -29,7 +29,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         </span>
       </div>
 
-      <div className={`mt-auto ${image ? "pr-[45%]" : ""}`}>
+      <div className={`mt-auto ${image ? "xl:pr-[48%] lg:pr-[53%]" : ""}`}>
         <p className="font-dmsans text-[16px]">
           {text}
         </p>

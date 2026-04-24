@@ -26,8 +26,7 @@ const EmblaCarousel = () => {
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     <div className="embla__slide" >
-                        <div className="w-[260px]">
-                        </div>
+                        <div className="xl:w-[260px] lg:w-[200px]"></div>
                     </div>
 
                     <div className="embla__slide" >
@@ -37,12 +36,10 @@ const EmblaCarousel = () => {
                                     <img src={whiteStar} alt="" />
                                 </div>
 
-
                                 <div>
                                     <h3 className="font-dmsans font-semibold text-[20px] text-text mb-[30px]">
                                         Frontend
                                     </h3>
-
 
                                     <div className="flex flex-wrap gap-[10px]">
                                         {frontendSkills.map((skill) => (
@@ -62,12 +59,10 @@ const EmblaCarousel = () => {
                                         <img src={greenCrosses} alt="" />
                                     </div>
 
-
                                     <div>
                                         <h3 className="font-dmsans font-semibold text-[20px] text-text mb-[30px]">
                                             Backend
                                         </h3>
-
 
                                         <div className="flex flex-wrap gap-[10px]">
                                             {backendSkills.map((skill) => (
@@ -84,12 +79,10 @@ const EmblaCarousel = () => {
                                         <img src={pinkPyramid} alt="" />
                                     </div>
 
-
                                     <div>
                                         <h3 className="font-dmsans font-semibold text-[20px] text-text mb-[30px]">
                                             Infrastructure
                                         </h3>
-
 
                                         <div className="flex flex-wrap gap-[10px]">
                                             {infrastructureSkills.map((skill) => (
@@ -122,7 +115,6 @@ const EmblaCarousel = () => {
                             </SkillCard>
                         </div>
 
-
                     </div>
                     <div className="embla__slide">
                         <SkillCard width="w-[600px]">
@@ -145,7 +137,7 @@ const EmblaCarousel = () => {
                         </SkillCard>
                     </div>
                     <div className="embla__slide" >
-                        <div className="w-[80px]">
+                        <div className="xl:w-[80px] lg:w-[0px]">
                         </div>
                     </div>
                 </div>

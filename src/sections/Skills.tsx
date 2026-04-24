@@ -6,7 +6,7 @@ const Skills: React.FC = () => {
     return (
         <div>
             <Container>
-                <h2 className="font-delagothicone uppercase text-[48px] leading-[1.45] text-text mb-[70px] pl-[40px]">
+                <h2>
                     Навыки
                 </h2>
             </Container>
