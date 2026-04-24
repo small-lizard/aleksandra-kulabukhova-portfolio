@@ -6,7 +6,7 @@ import Skills from "./sections/Skills"
 function App() {
 
   return (
-    <div className="flex flex-col gap-[170px]">
+    <div className="flex flex-col md:gap-[100px] xl:gap-[170px]">
       <Hero />
       <Skills />
       <Projects />

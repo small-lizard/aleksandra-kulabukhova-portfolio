@@ -18,7 +18,7 @@ const EmblaCarousel = () => {
     } = usePrevNextButtons(emblaApi)
 
     const frontendSkills = ["HTML5", "CSS3", "JS", "TS", "React", "Redux Toolkit", "i18n", "React Hook Form"];
-    const backendSkills = ["Node.js", "Express", "MongoDB", "Resend", "Session Authentication"];
+    const backendSkills = ["Node.js", "Express", "Resend", "Session Authentication","MongoDB"];
     const infrastructureSkills = ["Docker", "Vercel", "Render", "MongoDB Atlas"];
 
     return (
@@ -26,7 +26,7 @@ const EmblaCarousel = () => {
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     <div className="embla__slide" >
-                        <div className="xl:w-[260px] lg:w-[200px]"></div>
+                        <div className="md:w-[80px] lg:w-[200px] xl:w-[260px]"></div>
                     </div>
 
                     <div className="embla__slide" >
