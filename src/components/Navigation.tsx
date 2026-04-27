@@ -1,12 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import burgerNav from "../assets/icons/burger-bar.svg";
-
-const navItems = [
-    { label: "Навыки", href: "#skills" },
-    { label: "Проекты", href: "#projects" },
-    { label: "Контакты", href: "#contacts" },
-];
+import { useTranslation } from "react-i18next";
 
 interface NavigationMenuProps {
     variant?: "header" | "footer";
@@ -19,6 +14,19 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
     onBurgerClick,
     isMobileMenuOpen = false,
 }) => {
+    const { t, i18n } = useTranslation();
+
+    const toggleLanguage = () => {
+        const nextLang = i18n.language === "ru" ? "en" : "ru";
+        i18n.changeLanguage(nextLang);
+    };
+
+    const navItems = [
+        { label: t("nav.skills"), href: "#skills" },
+        { label: t("nav.projects"), href: "#projects" },
+        { label: t("nav.contacts"), href: "#contacts" },
+    ];
+
     if (variant === "footer") {
         return (
             <nav aria-label="Навигация" className="w-full">
@@ -38,11 +46,13 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
             {/* Mobile */}
             <div className="flex items-center md:hidden justify-between w-full">
                 <button
+                    onClick={toggleLanguage}
                     aria-label="Сменить язык"
                     className="h-[40px] px-[20px] font-dmsans font-medium text-[14px] bg-dark text-text uppercase rounded-[10px] cursor-pointer"
                 >
-                    RU
+                    {i18n.language === "ru" ? "EN" : "RU"}
                 </button>
+
                 <button
                     onClick={onBurgerClick}
                     aria-label="Открыть меню"
@@ -57,11 +67,13 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
             {/* Desktop */}
             <div className="hidden md:flex items-center justify-between w-full">
                 <button
+                    onClick={toggleLanguage}
                     aria-label="Сменить язык"
                     className="h-[40px] px-[20px] font-dmsans font-medium text-[14px] bg-dark text-text uppercase rounded-[10px] cursor-pointer"
                 >
-                    RU
+                    {i18n.language === "ru" ? "EN" : "RU"}
                 </button>
+
                 <ul className="flex items-center justify-between md:gap-[20px] list-none p-0 m-0">
                     {navItems.map((item) => (
                         <li key={item.href}>

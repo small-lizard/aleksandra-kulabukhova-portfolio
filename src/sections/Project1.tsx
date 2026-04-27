@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 import Button from "../components/Button";
 import FeatureCard from "../components/FeatureCard";
 import TechStackSection from "../components/TechStackSection";
+
 import VioletStar from "../assets/icons/violet-star.svg";
 import GreenArc from "../assets/icons/green-arc.svg";
 import Desktop from "../assets/images/desktop.png";
@@ -10,6 +13,8 @@ import Otp from "../assets/images/otp.png";
 import Validation from "../assets/images/validation.png";
 
 const Project1: React.FC = () => {
+    const { t } = useTranslation();
+
     return (
         <article className="w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
             p-[20px] lg:p-[20px] xl:p-[40px]
@@ -20,7 +25,7 @@ const Project1: React.FC = () => {
                     mb-[20px] lg:mb-[30px] xl:mb-[30px] md:flex-row">
 
                     <h3 className="font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]">
-                        Трекер привычек
+                        {t("projects.habit_tracker.title")}
                     </h3>
 
                     <div className="flex flex-col gap-[20px] md:flex-row md:justify-end hidden md:flex">
@@ -54,11 +59,13 @@ const Project1: React.FC = () => {
                 <div className="flex flex-col 
                     md:w-[420px] lg:w-[520px] xl:w-[520px]
                     gap-[15px] lg:gap-[20px]">
+
                     <p className="text-text text-[14px] lg:text-[16px]">
-                        Приложение для отслеживания привычек с регистрацией, управлением привычками и статистикой выполнения.
+                        {t("projects.habit_tracker.description")}
                     </p>
+
                     <p className="text-text-secondary text-[14px] lg:text-[16px]">
-                        Целью проекта было создание неперегруженного и быстрого в использовании трекера привычек.
+                        {t("projects.habit_tracker.goal")}
                     </p>
                 </div>
             </header>
@@ -70,11 +77,13 @@ const Project1: React.FC = () => {
                     aria-hidden="true"
                     className="pointer-events-none absolute right-[10%] top-[-80px] rotate-[13deg] z-0 hidden md:block"
                 />
+
                 <img
                     src={Desktop}
                     alt="Десктопная версия трекера привычек"
                     className="w-full h-auto md:h-[clamp(200px,35vw,490px)] md:w-auto object-cover rounded-[10px] z-10"
                 />
+
                 <img
                     src={Mobile}
                     alt="Мобильная версия трекера привычек"
@@ -101,8 +110,9 @@ const Project1: React.FC = () => {
                 <h4 id="stack-heading" className="font-delagothicone uppercase text-text
                     text-[20px] lg:text-[24px] xl:text-[28px]
                     mb-[20px] lg:mb-[40px]">
-                    Стек
+                    {t("projects.habit_tracker.sections.stack")}
                 </h4>
+
                 <div className="flex w-full flex-wrap gap-[25px] md:gap-[40px] lg:gap-[40px] xl:gap-[60px]">
                     <TechStackSection title="//frontend" skills={["TS", "React", "Redux Toolkit", "React Hook Form", "i18n", "Zod"]} />
                     <TechStackSection title="//backend" skills={["Node.js", "Express"]} />
@@ -122,12 +132,13 @@ const Project1: React.FC = () => {
                 <div className="flex justify-between gap-[30px] flex-col lg:flex-row">
                     <h4 id="features-heading" className="font-delagothicone uppercase text-text
                         text-[20px] lg:text-[24px] xl:text-[28px]">
-                        Фичи
+                        {t("projects.habit_tracker.sections.features")}
                     </h4>
+
                     <div className="w-full lg:max-w-[670px] xl:max-w-[670px]">
                         <FeatureCard
                             title="Authentication"
-                            text="Регистрация пользователей с подтверждением email через одноразовый OTP-код и ограничением количества попыток."
+                            text={t("projects.habit_tracker.features.auth")}
                             index="01"
                             image={Otp}
                         />
@@ -135,18 +146,18 @@ const Project1: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-3">
-                    <FeatureCard title="PWA support" text="Приложение настроено как PWA и может использоваться на мобильных устройствах как нативное приложение." index="02" />
-                    <FeatureCard title="Habit tracking" text="Интерфейс отслеживания привычек с ежедневной отметкой выполнения и отображением прогресса." index="03" />
-                    <FeatureCard title="Secure user data" text="Безопасное хранение данных пользователей: хеширование паролей и OTP-кодов с использованием bcrypt." index="04" />
+                    <FeatureCard title="PWA support" text={t("projects.habit_tracker.features.pwa")} index="02" />
+                    <FeatureCard title="Habit tracking" text={t("projects.habit_tracker.features.tracking")} index="03" />
+                    <FeatureCard title="Secure user data" text={t("projects.habit_tracker.features.security")} index="04" />
                     <FeatureCard
                         title="Internationalization (i18n)"
-                        text="Поддержка нескольких языков (русский и английский) с возможностью переключения интерфейса."
+                        text={t("projects.habit_tracker.features.i18n")}
                         index={<><span className="inline lg:hidden">05</span><span className="hidden lg:inline">06</span></>}
                         className="md:order-4 lg:order-5 lg:col-span-1"
                     />
                     <FeatureCard
                         title="Validation"
-                        text="Клиентская и серверная валидация пользовательских данных с использованием React Hook Form и Zod."
+                        text={t("projects.habit_tracker.features.validation")}
                         index={<><span className="inline lg:hidden">06</span><span className="hidden lg:inline">05</span></>}
                         image={Validation}
                         className="md:order-5 md:col-span-2 lg:order-4 lg:col-span-2"

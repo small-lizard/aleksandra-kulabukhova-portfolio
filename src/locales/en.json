@@ -1,0 +1,38 @@
+{
+    "hero": {
+        "title_1": "Alexandra Kulabukhova",
+        "title_2": "Full-stack Developer",
+        "description_1": "I combine a technical approach with an understanding of user experience thanks to my background in design. I enjoy exploring new technologies and quickly putting them into practice.",
+        "description_2": "I am used to learning independently and taking responsibility for my growth. I easily adapt to new tools and continuously develop my skills in development.",
+        "button": "Contact me"
+    },
+    "nav": {
+        "skills": "Skills",
+        "projects": "Projects",
+        "contacts": "Contact"
+    },
+    "other": {
+        "api": "I design and implement REST APIs: working with routing, handling HTTP requests, validating data, structuring endpoints, and building client–server interaction.",
+        "principles": "I follow SOLID principles and OOP, using design patterns where they improve maintainability and scalability.",
+        "principles_2": "I design applications with a focus on separation of concerns, maintainability, and scalability."
+    },
+    "projects": {
+        "habit_tracker": {
+            "title": "Habit Tracker",
+            "description": "An application for tracking habits with user authentication, habit management, and progress statistics.",
+            "goal": "The goal of the project was to create a lightweight and fast-to-use habit tracking app.",
+            "sections": {
+                "stack": "Stack",
+                "features": "Features"
+            },
+            "features": {
+                "auth": "User registration with email verification via a one-time OTP code and limited number of attempts.",
+                "pwa": "The application is configured as a PWA and can be used on mobile devices like a native app.",
+                "tracking": "Habit tracking interface with daily completion marking and progress visualization.",
+                "security": "Secure user data storage: password and OTP hashing using bcrypt.",
+                "i18n": "Support for multiple languages (Russian and English) with interface switching.",
+                "validation": "Client-side and server-side validation using React Hook Form and Zod."
+            }
+        }
+    }
+}

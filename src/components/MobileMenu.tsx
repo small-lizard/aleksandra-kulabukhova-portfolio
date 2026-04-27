@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
 import cross from "../assets/icons/cross.svg";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 
 interface MobileMenuProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-const menuItems = [
-    { label: "Навыки", href: "#skills" },
-    { label: "Проекты", href: "#projects" },
-    { label: "Контакты", href: "#contacts" },
-];
-
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+    const { t } = useTranslation();
     useEffect(() => {
         document.body.style.overflow = isOpen ? "hidden" : "";
         return () => { document.body.style.overflow = ""; };
     }, [isOpen]);
+
+    const menuItems = [
+        { label: t("nav.skills"), href: "#skills" },
+        { label: t("nav.projects"), href: "#projects" },
+        { label: t("nav.contacts"), href: "#contacts" },
+    ];
 
     const handleNavClick = (href: string) => {
         const el = document.querySelector(href);

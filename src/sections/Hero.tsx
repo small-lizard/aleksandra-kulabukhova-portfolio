@@ -6,9 +6,11 @@ import violetFlower from "../assets/icons/violet-flower.svg";
 import Container from "../components/Wrapper";
 import NavigationMenu from "../components/Navigation";
 import MobileMenu from "../components/MobileMenu";
+import { useTranslation } from "react-i18next";
 
 const Hero: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const setVh = () => {
@@ -38,10 +40,10 @@ const Hero: React.FC = () => {
                         <div className="z-10 w-full flex flex-col">
                             <h1 className="relative flex flex-col gap-[20px] md:gap-[30px]">
                                 <span className={`${headingSpan} text-text-accent self-start`}>
-                                    Александра Кулабухова
+                                    {t("hero.title_1")}
                                 </span>
                                 <span className={`${headingSpan} text-text md:self-end`}>
-                                    Full-stack Разработчик
+                                    {t("hero.title_2")}
                                 </span>
 
                                 <img
@@ -61,14 +63,10 @@ const Hero: React.FC = () => {
                             <div className="relative mt-[50px] md:mt-[30px] ml-auto md:w-[410px] lg:w-[520px] lg:mr-[10px] xl:mr-[120px]">
                                 <div className="font-dmsans text-[14px] lg:text-[16px] leading-[1.45] flex flex-col gap-[15px] md:gap-[20px]">
                                     <p className="text-text">
-                                        Сочетаю технический подход с пониманием пользовательского
-                                        восприятия благодаря опыту в дизайне. Люблю разбираться в
-                                        новых технологиях и быстро доводить их до практики.
+                                        {t("hero.description_1")}
                                     </p>
                                     <p className="text-text-secondary">
-                                        Привыкла учиться самостоятельно и брать ответственность за
-                                        свой рост. Легко адаптируюсь к новым инструментам и постоянно
-                                        развиваю свои навыки в разработке.
+                                        {t("hero.description_2")}
                                     </p>
                                 </div>
 
@@ -84,7 +82,7 @@ const Hero: React.FC = () => {
 
                     <div className="flex justify-center mb-[20px] mt-[40px] md:mt-[40px] md:mb-[0px]">
                         <Button
-                            text="Связаться со мной"
+                            text={t("hero.button")}
                             href="#contacts"
                             withIcon
                             className="uppercase rounded-[10px] bg-primary text-text"

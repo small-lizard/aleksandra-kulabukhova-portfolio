@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import greenArrow from "../assets/icons/green-arrow.svg";
 import Container from "../components/Wrapper";
 import NavigationMenu from "../components/Navigation";
+import { useTranslation } from "react-i18next";
 
 interface ContactBlockProps {
     label: string;
@@ -11,6 +12,8 @@ interface ContactBlockProps {
 }
 
 const ContactBlock: React.FC<ContactBlockProps> = ({ label, value, href }) => {
+
+
     return (
         <div className="flex flex-col gap-[5px] md:gap-[15px] text-text">
             <p className="font-dmsans text-[16px] md:text-[20px]">
@@ -35,11 +38,12 @@ const contacts = [
 ];
 
 const Contacts: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <footer>
             <Container>
                 <h2 id="contacts">
-                    Контакты
+                    {t("nav.contacts")}
                 </h2>
 
                 <div className="relative flex flex-col 

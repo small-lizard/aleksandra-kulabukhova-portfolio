@@ -6,9 +6,11 @@ import violetFlower from "../../assets/icons/violet-flower.svg";
 import { NextButton, PrevButton, usePrevNextButtons } from './EmblaCarouselArrowButtons'
 import SkillCard from '../SkillCard'
 import SkillCardContent from '../SkillCardContent'
+import { useTranslation } from "react-i18next";
 
 const EmblaCarousel = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel()
+    const { t } = useTranslation();
 
     const {
         prevBtnDisabled,
@@ -70,8 +72,7 @@ const EmblaCarousel = () => {
                                 title="REST API"
                                 content={
                                     <p className="font-dmsans text-text text-[16px]">
-                                        Проектирование и реализация REST API: работа с маршрутами,
-                                        обработка HTTP-запросов, валидация данных, структура эндпоинтов и взаимодействие клиент–сервер
+                                        {t("other.api")}
                                     </p>
                                 }
                                 isSkills={false}
@@ -88,12 +89,11 @@ const EmblaCarousel = () => {
                                 content={
                                     <div className="flex flex-col gap-[20px]">
                                         <p className="font-dmsans text-text text-[16px]">
-                                            Придерживаюсь принципов SOLID, ООП и использую паттерны там, где это упрощает поддержку и развитие проекта
+                                            {t("other.principles")}
                                         </p>
 
                                         <p className="font-dmsans text-text text-[16px]">
-                                            Проектирую приложения с учётом разделения ответственности,
-                                            поддерживаемости и масштабируемости
+                                            {t("other.principles_2")}
                                         </p>
                                     </div>
                                 }
