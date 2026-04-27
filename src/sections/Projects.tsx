@@ -4,14 +4,14 @@ import Project1 from "./Project1";
 
 const Projects: React.FC = () => {
     return (
-        <Container>
-            <h2>
-                Проекты
-            </h2>
-            <Project1></Project1>
-
-        </Container>
-
+        <section id="projects" aria-labelledby="projects-heading">
+            <Container>
+                <h2 id="projects-heading">
+                    Проекты
+                </h2>
+                <Project1 />
+            </Container>
+        </section>
     );
 };
 

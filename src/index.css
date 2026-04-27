@@ -3,15 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+
   html,
   body,
   #root {
-    @apply min-h-dvh bg-[#201F1F];
+    @apply min-h-dvh bg-background;
   }
 
   h2 {
-    @apply font-delagothicone uppercase leading-[1.45] text-text xl:text-[48px] lg:text-[42px] md:text-[32px] xl:pl-[40px] lg:pl-[20px] xl:mb-[70px] md:mb-[50px];
+    @apply font-delagothicone uppercase leading-[1.45] text-text xl:text-[48px] lg:text-[42px] md:text-[32px] text-[30px] xl:pl-[40px] lg:pl-[20px] xl:mb-[70px] md:mb-[50px] mb-[30px];
+    scroll-margin-top: 40px;
   }
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* Dela Gothic One */
@@ -78,4 +84,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .embla__slide:last-child {
+    padding-right: 20px;
+  }
 }

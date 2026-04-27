@@ -8,13 +8,15 @@ interface TechStackSectionProps {
 
 const TechStackSection: React.FC<TechStackSectionProps> = ({ title, skills }) => {
     return (
-        <div className="flex flex-col md:gap-[15px] xl:gap-[20px]">
-            <span className="text-text-secondary text-[16px]">{title}</span>
-            <div className="flex flex-wrap gap-[10px]">
+        <div className="flex flex-col gap-[10px] xl:gap-[20px]">
+            <p className="text-text-secondary text-[16px]">{title}</p>
+            <ul className="flex flex-wrap gap-[10px] list-none p-0 m-0">
                 {skills.map((t) => (
-                    <SkillCardBlock key={t} text={t} />
+                    <li key={t}>
+                        <SkillCardBlock text={t} />
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

@@ -1,31 +1,76 @@
 import React from "react";
 import Button from "../components/Button";
+import burgerNav from "../assets/icons/burger-bar.svg";
 
-const navItems = ["Навыки", "Проекты", "Контакты"];
+const navItems = [
+    { label: "Навыки", href: "#skills" },
+    { label: "Проекты", href: "#projects" },
+    { label: "Контакты", href: "#contacts" },
+];
 
 interface NavigationMenuProps {
-    withLangButton?: boolean;
+    variant?: "header" | "footer";
+    onBurgerClick?: () => void;
+    isMobileMenuOpen?: boolean;
 }
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({
-    withLangButton = true,
+    variant = "header",
+    onBurgerClick,
+    isMobileMenuOpen = false,
 }) => {
-    return (
-        <div className="flex items-center justify-between">
-            {withLangButton && (
-                <Button text="RU" variant="secondary" />
-            )}
+    if (variant === "footer") {
+        return (
+            <nav aria-label="Навигация" className="w-full">
+                <ul className="flex items-center w-full justify-between md:gap-[20px] md:justify-center list-none p-0 m-0">
+                    {navItems.map((item) => (
+                        <li key={item.href}>
+                            <Button text={item.label} href={item.href} variant="secondary" />
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        );
+    }
 
-            <div className="flex items-center gap-[20px]">
-                {navItems.map((item) => (
-                    <Button
-                        key={item}
-                        text={item}
-                        variant="secondary"
-                    />
-                ))}
+    return (
+        <nav aria-label="Основная навигация" className="flex items-center">
+            {/* Mobile */}
+            <div className="flex items-center md:hidden justify-between w-full">
+                <button
+                    aria-label="Сменить язык"
+                    className="h-[40px] px-[20px] font-dmsans font-medium text-[14px] bg-dark text-text uppercase rounded-[10px] cursor-pointer"
+                >
+                    RU
+                </button>
+                <button
+                    onClick={onBurgerClick}
+                    aria-label="Открыть меню"
+                    aria-expanded={isMobileMenuOpen}
+                    aria-controls="mobile-menu"
+                    className="h-[40px] flex items-center justify-center rounded-[10px] w-[44px] border-[1px] border-light"
+                >
+                    <img src={burgerNav} alt="" aria-hidden="true" className="w-[20px] h-auto" />
+                </button>
             </div>
-        </div>
+
+            {/* Desktop */}
+            <div className="hidden md:flex items-center justify-between w-full">
+                <button
+                    aria-label="Сменить язык"
+                    className="h-[40px] px-[20px] font-dmsans font-medium text-[14px] bg-dark text-text uppercase rounded-[10px] cursor-pointer"
+                >
+                    RU
+                </button>
+                <ul className="flex items-center justify-between md:gap-[20px] list-none p-0 m-0">
+                    {navItems.map((item) => (
+                        <li key={item.href}>
+                            <Button text={item.label} href={item.href} variant="secondary" />
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
     );
 };
 

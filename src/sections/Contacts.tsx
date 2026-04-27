@@ -7,71 +7,86 @@ import NavigationMenu from "../components/Navigation";
 interface ContactBlockProps {
     label: string;
     value: string;
+    href: string;
 }
 
-const ContactBlock: React.FC<ContactBlockProps> = ({ label, value }) => {
+const ContactBlock: React.FC<ContactBlockProps> = ({ label, value, href }) => {
     return (
-        <div className="flex flex-col gap-[15px] text-text">
-            <p className="font-dmsans text-[20px]">
+        <div className="flex flex-col gap-[5px] md:gap-[15px] text-text">
+            <p className="font-dmsans text-[16px] md:text-[20px]">
                 {label}
             </p>
-            <p className="font-dmsans font-bold text-[32px]">
+            <a
+                href={href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="font-dmsans font-bold text-[20px] md:text-[32px] hover:opacity-70 transition-opacity block w-full md:w-auto md:inline-block"
+            >
                 {value}
-            </p>
+            </a>
         </div>
     );
 };
 
+const contacts = [
+    { label: "Telegram", value: "@small-lizard", href: "https://t.me/small_lizard" },
+    { label: "WhatsApp", value: "+79288825399", href: "https://api.whatsapp.com/send?phone=79288825399" },
+    { label: "Email", value: "a.kulabukhova001@gmail.com", href: "mailto:a.kulabukhova001@gmail.com" },
+];
+
 const Contacts: React.FC = () => {
-    const contacts = [
-        { label: "Telegram", value: "@small-lizard" },
-        { label: "WhatsApp", value: "+79288825399" },
-        { label: "Email", value: "kulabukhova.alex@gmail.com" },
-    ];
-
     return (
-        <Container>
-            <h2>
-                Контакты
-            </h2>
+        <footer>
+            <Container>
+                <h2 id="contacts">
+                    Контакты
+                </h2>
 
-            <div className="relative flex flex-col gap-[120px] 
-                bg-primary rounded-[24px] min-h-[380px] 
-                py-[60px] mb-[40px] overflow-hidden
-                md:px-[60px] xl:px-[100px]">
+                <div className="relative flex flex-col 
+                    bg-primary rounded-[24px] min-h-[380px] 
+                    mb-[40px] overflow-hidden
+                    px-[20px] py-[20px] gap-[40px]
+                    md:py-[60px] md:px-[60px] md:gap-[120px] xl:px-[100px]">
 
-                <img
-                    src={greenArrow}
-                    alt="Decorative background icon"
-                    className="absolute bottom-[-20px] pointer-events-none w-[180px] h-[180px] md:left-[60px] xl:left-[100px]"
-                />
+                    <img
+                        src={greenArrow}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute bottom-[-20px] pointer-events-none w-[180px] h-[180px] md:left-[60px] xl:left-[100px] hidden md:block"
+                    />
 
-                <div className="flex justify-between flex-wrap gap-[40px] xl:flex-nowrap">
-                    {contacts.map((contact) => (
-                        <ContactBlock
-                            key={contact.label}
-                            label={contact.label}
-                            value={contact.value}
+                    <div className="flex justify-between flex-wrap gap-[30px] md:gap-[40px] xl:flex-nowrap">
+                        {contacts.map((contact) => (
+                            <ContactBlock
+                                key={contact.label}
+                                label={contact.label}
+                                value={contact.value}
+                                href={contact.href}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="flex items-center justify-end gap-[20px] flex-col md:flex-row">
+                        <Button
+                            text="GitHub"
+                            href="https://github.com/small-lizard"
+                            target="_blank"
+                            className="text-dark bg-light font-bold w-full md:w-auto"
                         />
-                    ))}
+                        <Button
+                            text="Download CV"
+                            href="/cv.pdf"
+                            download
+                            className="text-dark bg-accent font-bold w-full md:w-auto"
+                        />
+                    </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-[20px]">
-                    <Button
-                        text="GitHub"
-                        className="uppercase rounded-[10px] text-dark bg-light font-bold"
-                    />
-                    <Button
-                        text="Download CV"
-                        className="uppercase rounded-[10px] text-dark bg-accent font-bold"
-                    />
+                <div className="flex items-center w-full mb-[40px] md:mb-[60px]">
+                    <NavigationMenu variant="footer" />
                 </div>
-            </div>
-
-            <div className="flex items-center justify-center mb-[60px]">
-                <NavigationMenu withLangButton={false} />
-            </div>
-        </Container>
+            </Container>
+        </footer>
     );
 };
 

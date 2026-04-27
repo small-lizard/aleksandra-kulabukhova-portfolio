@@ -2,12 +2,11 @@ import useEmblaCarousel from 'embla-carousel-react'
 import pinkPyramid from "../../assets/icons/pink-pyramid.svg";
 import whiteStar from "../../assets/icons/white-star.svg";
 import greenCrosses from "../../assets/icons/green-crosses.svg";
-import violetFlower from "../../assets/icons/violet-flower.svg";
 import { NextButton, PrevButton, usePrevNextButtons } from './EmblaCarouselArrowButtons'
 import SkillCard from '../SkillCard'
 import SkillCardContent from '../SkillCardContent'
 
-const EmblaCarousel = () => {
+const EmblaCarouselMobile = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel()
 
     const {
@@ -25,9 +24,6 @@ const EmblaCarousel = () => {
         <div className="embla">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    <div className="embla__slide" >
-                        <div className="md:w-[80px] lg:w-[200px] xl:w-[260px]"></div>
-                    </div>
 
                     <div className="embla__slide" >
                         <SkillCard isActive>
@@ -39,15 +35,17 @@ const EmblaCarousel = () => {
                         </SkillCard>
                     </div>
 
-                    <div className="embla__slide" >
-                        <div className='flex gap-[20px]'>
+                    <div className="embla__slide">
                         <SkillCard>
-                                <SkillCardContent
-                                    title="Backend"
-                                    icon={greenCrosses}
-                                    skills={backendSkills}
-                                />
-                            </SkillCard>
+                            <SkillCardContent
+                                title="Backend"
+                                icon={greenCrosses}
+                                skills={backendSkills}
+                            />
+                        </SkillCard>
+                    </div>
+
+                    <div className="embla__slide" >
 
                         <SkillCard>
                             <SkillCardContent
@@ -56,20 +54,15 @@ const EmblaCarousel = () => {
                                 skills={infrastructureSkills}
                             />
                         </SkillCard>
-                        </div>
 
                     </div>
 
                     <div className="embla__slide" >
-                        <div className='flex gap-[20px]'>
-                            <div className="w-[270px] flex items-center justify-center">
-                                <img src={violetFlower} alt="" />
-                            </div>
                         <SkillCard>
                             <SkillCardContent
                                 title="REST API"
                                 content={
-                                    <p className="font-dmsans text-text text-[16px]">
+                                    <p className="font-dmsans text-text text-[14px]">
                                         Проектирование и реализация REST API: работа с маршрутами,
                                         обработка HTTP-запросов, валидация данных, структура эндпоинтов и взаимодействие клиент–сервер
                                     </p>
@@ -77,21 +70,20 @@ const EmblaCarousel = () => {
                                 isSkills={false}
                             />
                         </SkillCard>
-                        </div>
 
                     </div>
 
                     <div className="embla__slide">
-                        <SkillCard width="w-[310px] md:w-[600px]">
+                        <SkillCard width="w-[350px] md:w-[600px]">
                             <SkillCardContent
                                 title="Best practice"
                                 content={
-                                    <div className="flex flex-col gap-[20px]">
-                                        <p className="font-dmsans text-text text-[16px]">
+                                    <div className="flex flex-col gap-[10px]">
+                                        <p className="font-dmsans text-text text-[14px]">
                                             Придерживаюсь принципов SOLID, ООП и использую паттерны там, где это упрощает поддержку и развитие проекта
                                         </p>
 
-                                        <p className="font-dmsans text-text text-[16px]">
+                                        <p className="font-dmsans text-text text-[14px]">
                                             Проектирую приложения с учётом разделения ответственности,
                                             поддерживаемости и масштабируемости
                                         </p>
@@ -100,11 +92,6 @@ const EmblaCarousel = () => {
                                 isSkills={false}
                             />
                         </SkillCard>
-                    </div>
-
-                    <div className="embla__slide" >
-                        <div className="xl:w-[80px]">
-                        </div>
                     </div>
                 </div>
             </div>
@@ -119,4 +106,4 @@ const EmblaCarousel = () => {
     )
 }
 
-export default EmblaCarousel;
+export default EmblaCarouselMobile;

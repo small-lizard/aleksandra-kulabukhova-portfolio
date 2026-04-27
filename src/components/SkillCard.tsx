@@ -11,18 +11,18 @@ const SkillCard: React.FC<SkillCardProps> = ({
     children,
     isActive = false,
     className = "",
-    width = "md:w-[350px] lg:w-[400px]",
+    width = "w-[350px] lg:w-[400px]",
 }) => {
     return (
         <div
             className={`${width}
-            md:h-[410px] md:p-[20px]
+            h-[400px] p-[20px]
             lg:h-[440px] lg:p-[40px]
             rounded-[20px]
             ${isActive
-                ? "bg-primary"
-                : "bg-transparent border-2 border-light"
-            }
+                    ? "bg-primary"
+                    : "bg-transparent border-2 border-light"
+                }
             ${className}`}
         >
             {children}

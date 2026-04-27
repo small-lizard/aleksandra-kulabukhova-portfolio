@@ -1,18 +1,23 @@
 import React from "react";
 import Container from "../components/Wrapper";
 import EmblaCarousel from "../components/carousel/EmblaCarousel";
+import EmblaCarouselMobile from "../components/carousel/EmblaCarouselMobile";
 
 const Skills: React.FC = () => {
     return (
-        <div>
+        <section aria-labelledby="skills-heading">
             <Container>
-                <h2>
+                <h2 id="skills-heading">
                     Навыки
                 </h2>
             </Container>
-            <EmblaCarousel></EmblaCarousel>
-        </div>
-
+            <div className="hidden md:block">
+                <EmblaCarousel />
+            </div>
+            <div className="hidden sm:block md:hidden lg:hidden xl:hidden">
+                <EmblaCarouselMobile />
+            </div>
+        </section>
     );
 };
 
