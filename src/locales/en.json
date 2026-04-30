@@ -17,14 +17,14 @@
         "principles_2": "I design applications with a focus on separation of concerns, maintainability, and scalability."
     },
     "projects": {
+        "sections": {
+            "stack": "Stack",
+            "features": "Features"
+        },
         "habit_tracker": {
             "title": "Habit Tracker",
             "description": "An application for tracking habits with user authentication, habit management, and progress statistics.",
             "goal": "The goal of the project was to create a lightweight and fast-to-use habit tracking app.",
-            "sections": {
-                "stack": "Stack",
-                "features": "Features"
-            },
             "features": {
                 "auth": "User registration with email verification via a one-time OTP code and limited number of attempts.",
                 "pwa": "The application is configured as a PWA and can be used on mobile devices like a native app.",
@@ -33,6 +33,11 @@
                 "i18n": "Support for multiple languages (Russian and English) with interface switching.",
                 "validation": "Client-side and server-side validation using React Hook Form and Zod."
             }
+        },
+        "portfolio_website": {
+            "title": "Portfolio Website",
+            "description": "This website was developed using AI tools. The project structure and logic were defined manually, after which neural networks were used to generate components and styles.",
+            "goal": "Only the final adjustments were made manually."
         }
     }
 }

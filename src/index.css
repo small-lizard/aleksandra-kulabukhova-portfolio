@@ -16,8 +16,66 @@
   }
 }
 
+* {
+  cursor: url('./assets/icons/cursor.svg') 0 0, auto;
+}
+
+a *,
+a,
+.quality-mark,
+button *,
+button,
+[role="button"] * {
+  cursor: url('./assets/icons/pointer.svg') 0 0, pointer !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+li,
+input,
+textarea {
+  cursor: url('./assets/icons/text.svg') 16 16, text;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  width: fit-content;
+}
+
+::selection {
+  background-color: #8F5CFB;
+  color: #EEEEEE;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes butterfly {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(1deg); }
+}
+
+@keyframes butterfly-small {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(2deg); }
+}
+
+.contact-link:hover {
+  animation: butterfly-small 0.3s step-start infinite;
+}
+
+.contact-link-long:hover {
+  animation: butterfly 0.3s step-start infinite;
 }
 
 /* Dela Gothic One */
@@ -84,6 +142,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.embla__button--disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 @media (max-width: 768px) {

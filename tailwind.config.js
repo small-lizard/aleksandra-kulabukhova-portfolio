@@ -19,7 +19,7 @@ export default {
         light: "#EEEEEE",
         text: {
           DEFAULT: "#EEEEEE",
-          secondary: "#6F6B6B",
+          secondary: "#6e6a6a",
           accent: "#B7FF56",
         },
         background: {

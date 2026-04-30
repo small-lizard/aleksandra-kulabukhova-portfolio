@@ -5,20 +5,44 @@ import Button from "../components/Button";
 import FeatureCard from "../components/FeatureCard";
 import TechStackSection from "../components/TechStackSection";
 
-import VioletStar from "../assets/icons/violet-star.svg";
 import GreenArc from "../assets/icons/green-arc.svg";
+import QualityMark from "../assets/icons/quality-mark.svg";
 import Desktop from "../assets/images/desktop.png";
 import Mobile from "../assets/images/mobile.png";
 import Otp from "../assets/images/otp.png";
 import Validation from "../assets/images/validation.png";
 
-const Project1: React.FC = () => {
+const QualityBlock = () => {
+    return (
+        <div className="relative">
+            <img
+                src={QualityMark}
+                alt=""
+                aria-hidden="true"
+                className="w-[80px] h-auto md:w-auto quality-mark relative z-20 cursor-pointer transition-transform duration-300 rotate-[13deg] hover:rotate-0 peer"
+            />
+
+            <div className="absolute z-10 right-full -mr-[50px] top-1/2 -translate-y-1/2
+        font-delagothicone text-[10px] md:text-[14px] text-text bg-background border-2 border-light 
+        p-[20px] pr-[60px] whitespace-nowrap rounded-[15px]
+        opacity-0 transition-opacity duration-300
+        peer-hover:opacity-100">
+                Написано с нуля, без генерации кода
+            </div>
+        </div>
+    )
+}
+
+const Project_1: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <article className="w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
+        <article className="relative w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
             p-[20px] lg:p-[20px] xl:p-[40px]
             gap-[35px] lg:gap-[60px] xl:gap-[60px]">
+            <div className="absolute top-[-35px] right-[-5%] block md:hidden">
+                <QualityBlock></QualityBlock>
+            </div>
 
             <header>
                 <div className="flex flex-col gap-[20px] md:justify-between 
@@ -56,40 +80,59 @@ const Project1: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col 
+                <div className="flex flex-col gap-[20px] md:justify-between md:flex-row">
+                    <div className="flex flex-col 
                     md:w-[420px] lg:w-[520px] xl:w-[520px]
                     gap-[15px] lg:gap-[20px]">
 
-                    <p className="text-text text-[14px] lg:text-[16px]">
-                        {t("projects.habit_tracker.description")}
-                    </p>
+                        <p className="text-text text-[14px] lg:text-[16px]">
+                            {t("projects.habit_tracker.description")}
+                        </p>
 
-                    <p className="text-text-secondary text-[14px] lg:text-[16px]">
-                        {t("projects.habit_tracker.goal")}
-                    </p>
+                        <p className="text-text-secondary text-[14px] lg:text-[16px]">
+                            {t("projects.habit_tracker.goal")}
+                        </p>
+                    </div>
+                    <div className="hidden md:block mr-[15%]">
+                        <QualityBlock></QualityBlock>
+                    </div>
                 </div>
+
             </header>
 
             <figure className="relative flex items-center justify-between m-0">
-                <img
-                    src={VioletStar}
-                    alt=""
-                    aria-hidden="true"
-                    className="pointer-events-none absolute right-[10%] top-[-80px] rotate-[13deg] z-0 hidden md:block"
-                />
+                <a
+                    href="https://habits-tracker-dusky.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-transform duration-300 ease-out inline-block"
+                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                >
+                    <img
+                        src={Desktop}
+                        alt="Десктопная версия трекера привычек"
+                        className="w-full h-auto md:h-[clamp(200px,35vw,490px)] md:w-auto object-cover rounded-[10px] z-10"
+                    />
+                </a>
 
-                <img
-                    src={Desktop}
-                    alt="Десктопная версия трекера привычек"
-                    className="w-full h-auto md:h-[clamp(200px,35vw,490px)] md:w-auto object-cover rounded-[10px] z-10"
-                />
-
-                <img
-                    src={Mobile}
-                    alt="Мобильная версия трекера привычек"
-                    className="h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px] z-10 hidden md:block"
-                />
-            </figure>
+                <a
+                    href="https://habits-tracker-dusky.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-transform duration-300 ease-out hidden md:inline-block inline-block"
+                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                >
+                    <img
+                        src={Mobile}
+                        alt="Мобильная версия трекера привычек"
+                        className="h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px] z-10"
+                    />
+                </a>
+            </figure >
 
             <div className="flex flex-col gap-[20px] md:hidden">
                 <Button
@@ -110,7 +153,7 @@ const Project1: React.FC = () => {
                 <h4 id="stack-heading" className="font-delagothicone uppercase text-text
                     text-[20px] lg:text-[24px] xl:text-[28px]
                     mb-[20px] lg:mb-[40px]">
-                    {t("projects.habit_tracker.sections.stack")}
+                    {t("projects.sections.stack")}
                 </h4>
 
                 <div className="flex w-full flex-wrap gap-[25px] md:gap-[40px] lg:gap-[40px] xl:gap-[60px]">
@@ -132,7 +175,7 @@ const Project1: React.FC = () => {
                 <div className="flex justify-between gap-[30px] flex-col lg:flex-row">
                     <h4 id="features-heading" className="font-delagothicone uppercase text-text
                         text-[20px] lg:text-[24px] xl:text-[28px]">
-                        {t("projects.habit_tracker.sections.features")}
+                        {t("projects.sections.features")}
                     </h4>
 
                     <div className="w-full lg:max-w-[670px] xl:max-w-[670px]">
@@ -164,8 +207,8 @@ const Project1: React.FC = () => {
                     />
                 </div>
             </section>
-        </article>
+        </article >
     );
 };
 
-export default Project1;
+export default Project_1;

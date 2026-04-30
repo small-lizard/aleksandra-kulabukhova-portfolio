@@ -19,8 +19,8 @@ const EmblaCarousel = () => {
         onNextButtonClick
     } = usePrevNextButtons(emblaApi)
 
-    const frontendSkills = ["HTML5", "CSS3", "JS", "TS", "React", "Redux Toolkit", "i18n", "React Hook Form"];
-    const backendSkills = ["Node.js", "Express", "Resend", "Session Authentication", "MongoDB"];
+    const frontendSkills = ["HTML5", "CSS3", "JS", "TS", "React", "Redux Toolkit", "i18n", "React Hook Form", "Tailwind"];
+    const backendSkills = ["Node.js", "Express", "MongoDB", "Email Integration (Resend)", "Session Authentication",];
     const infrastructureSkills = ["Docker", "Vercel", "Render", "MongoDB Atlas"];
 
     return (
@@ -43,7 +43,7 @@ const EmblaCarousel = () => {
 
                     <div className="embla__slide" >
                         <div className='flex gap-[20px]'>
-                        <SkillCard>
+                            <SkillCard>
                                 <SkillCardContent
                                     title="Backend"
                                     icon={greenCrosses}
@@ -51,13 +51,13 @@ const EmblaCarousel = () => {
                                 />
                             </SkillCard>
 
-                        <SkillCard>
-                            <SkillCardContent
-                                title="Infrastructure"
-                                icon={pinkPyramid}
-                                skills={infrastructureSkills}
-                            />
-                        </SkillCard>
+                            <SkillCard>
+                                <SkillCardContent
+                                    title="Infrastructure"
+                                    icon={pinkPyramid}
+                                    skills={infrastructureSkills}
+                                />
+                            </SkillCard>
                         </div>
 
                     </div>
@@ -67,17 +67,17 @@ const EmblaCarousel = () => {
                             <div className="w-[270px] flex items-center justify-center">
                                 <img src={violetFlower} alt="" />
                             </div>
-                        <SkillCard>
-                            <SkillCardContent
-                                title="REST API"
-                                content={
-                                    <p className="font-dmsans text-text text-[16px]">
-                                        {t("other.api")}
-                                    </p>
-                                }
-                                isSkills={false}
-                            />
-                        </SkillCard>
+                            <SkillCard>
+                                <SkillCardContent
+                                    title="REST API"
+                                    content={
+                                        <p className="font-dmsans text-text text-[16px]">
+                                            {t("other.api")}
+                                        </p>
+                                    }
+                                    isSkills={false}
+                                />
+                            </SkillCard>
                         </div>
 
                     </div>

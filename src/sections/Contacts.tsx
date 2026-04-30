@@ -12,7 +12,7 @@ interface ContactBlockProps {
 }
 
 const ContactBlock: React.FC<ContactBlockProps> = ({ label, value, href }) => {
-
+    const isLong = href.startsWith("mailto:");
 
     return (
         <div className="flex flex-col gap-[5px] md:gap-[15px] text-text">
@@ -23,11 +23,11 @@ const ContactBlock: React.FC<ContactBlockProps> = ({ label, value, href }) => {
                 href={href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="font-dmsans font-bold text-[20px] md:text-[32px] hover:opacity-70 transition-opacity block w-full md:w-auto md:inline-block"
+                className={`${isLong ? "contact-link-long" : "contact-link"} underline font-dmsans font-bold text-[20px] md:text-[32px] transition-opacity block w-full md:w-auto md:inline-block`}
             >
                 {value}
             </a>
-        </div>
+        </div >
     );
 };
 
@@ -49,8 +49,8 @@ const Contacts: React.FC = () => {
                 <div className="relative flex flex-col 
                     bg-primary rounded-[24px] min-h-[380px] 
                     mb-[40px] overflow-hidden
-                    px-[20px] py-[20px] gap-[40px]
-                    md:py-[60px] md:px-[60px] md:gap-[120px] xl:px-[100px]">
+                    p-[20px] justify-between
+                    md:p-[60px] md:gap-[120px] xl:px-[100px]">
 
                     <img
                         src={greenArrow}

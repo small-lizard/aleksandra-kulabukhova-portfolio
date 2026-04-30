@@ -18,7 +18,7 @@ const EmblaCarouselMobile = () => {
         onNextButtonClick
     } = usePrevNextButtons(emblaApi)
 
-    const frontendSkills = ["HTML5", "CSS3", "JS", "TS", "React", "Redux Toolkit", "i18n", "React Hook Form"];
+    const frontendSkills = ["HTML5", "CSS3", "JS", "TS", "React", "Redux Toolkit", "i18n", "React Hook Form","Tailwind"];
     const backendSkills = ["Node.js", "Express", "Resend", "Session Authentication", "MongoDB"];
     const infrastructureSkills = ["Docker", "Vercel", "Render", "MongoDB Atlas"];
 
