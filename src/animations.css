@@ -1,0 +1,56 @@
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUpRotateCW {
+    from { opacity: 0; transform: translateY(24px) rotate(-20deg); }
+    to   { opacity: 1; transform: translateY(0) rotate(15deg); }
+}
+
+@keyframes fadeUpRotateCCW {
+    from { opacity: 0; transform: translateY(24px) rotate(20deg); }
+    to   { opacity: 1; transform: translateY(0) rotate(-15.61deg); }
+}
+
+@keyframes fadeUpRotateSmile {
+    from { opacity: 0; transform: translateY(24px) rotate(-18deg); }
+    to   { opacity: 1; transform: translateY(0) rotate(13.76deg); }
+}
+
+@keyframes spinSettle {
+    0%   { opacity: 0; transform: translateY(20px) rotate(-200deg); }
+    10%  { opacity: 1; }
+    100% { opacity: 1; transform: translateY(0) rotate(15deg); }
+}
+
+@keyframes scaleBounce {
+    0%   { opacity: 0; transform: scale(0.8); }
+    5%   { opacity: 1; transform: scale(1.08); }
+    30%  { transform: scale(0.95); }
+    60%  { transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── Utility classes ── */
+
+.fade-up          { opacity: 0; }
+.fade-up.visible  { animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.fade-up-fast         { opacity: 0; }
+.fade-up-fast.visible { animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.fade-up-rotate-cw         { opacity: 0; transform: translateY(24px) rotate(0deg); }
+.fade-up-rotate-cw.visible { animation: fadeUpRotateCW 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.spin-settle         { opacity: 0; }
+.spin-settle.visible { animation: spinSettle 1.4s cubic-bezier(0.05, 0.95, 0.2, 1) forwards; }
+
+.fade-up-rotate-ccw         { opacity: 0; transform: translateY(24px) rotate(0deg); }
+.fade-up-rotate-ccw.visible { animation: fadeUpRotateCCW 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.fade-up-rotate-smile         { opacity: 0; transform: translateY(24px) rotate(0deg); }
+.fade-up-rotate-smile.visible { animation: fadeUpRotateSmile 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.scale-bounce         { opacity: 0; }
+.scale-bounce.visible { animation: scaleBounce 1.4s ease-out forwards; }

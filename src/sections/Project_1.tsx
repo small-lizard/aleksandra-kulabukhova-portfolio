@@ -11,8 +11,10 @@ import Desktop from "../assets/images/desktop.png";
 import Mobile from "../assets/images/mobile.png";
 import Otp from "../assets/images/otp.png";
 import Validation from "../assets/images/validation.png";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const QualityBlock = () => {
+    const { t } = useTranslation();
     return (
         <div className="relative">
             <img
@@ -27,7 +29,7 @@ const QualityBlock = () => {
         p-[20px] pr-[60px] whitespace-nowrap rounded-[15px]
         opacity-0 transition-opacity duration-300
         peer-hover:opacity-100">
-                Написано с нуля, без генерации кода
+                {t("projects.habit_tracker.quality")}
             </div>
         </div>
     )
@@ -35,6 +37,8 @@ const QualityBlock = () => {
 
 const Project_1: React.FC = () => {
     const { t } = useTranslation();
+    const { ref, cls } = useScrollReveal(['heading', 'desc', 'stack', 'features']);
+
 
     return (
         <article className="relative w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
@@ -48,7 +52,9 @@ const Project_1: React.FC = () => {
                 <div className="flex flex-col gap-[20px] md:justify-between 
                     mb-[20px] lg:mb-[30px] xl:mb-[30px] md:flex-row">
 
-                    <h3 className="font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]">
+                    <h3 ref={ref('heading')}
+                        className={cls('heading', 'font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]')}
+                        style={{ animationDelay: '100ms' }}>
                         {t("projects.habit_tracker.title")}
                     </h3>
 
@@ -81,9 +87,9 @@ const Project_1: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-[20px] md:justify-between md:flex-row">
-                    <div className="flex flex-col 
-                    md:w-[420px] lg:w-[520px] xl:w-[520px]
-                    gap-[15px] lg:gap-[20px]">
+                    <div ref={ref('desc')}
+                        className={cls('desc', 'flex flex-col md:w-[420px] lg:w-[540px] xl:w-[540px] gap-[15px] lg:gap-[20px]')}
+                        style={{ animationDelay: '150ms' }}>
 
                         <p className="text-text text-[14px] lg:text-[16px]">
                             {t("projects.habit_tracker.description")}
@@ -100,7 +106,9 @@ const Project_1: React.FC = () => {
 
             </header>
 
-            <figure className="relative flex items-center justify-between m-0">
+            <figure
+                className='relative flex items-center justify-between m-0'
+                style={{ animationDelay: '300ms' }}>
                 <a
                     href="https://habits-tracker-dusky.vercel.app/"
                     target="_blank"
@@ -149,7 +157,12 @@ const Project_1: React.FC = () => {
                 />
             </div>
 
-            <section aria-labelledby="stack-heading">
+            <section
+                ref={ref('stack')}
+                className={cls('stack', '')}
+                style={{ animationDelay: '200ms' }}
+
+                aria-labelledby="stack-heading">
                 <h4 id="stack-heading" className="font-delagothicone uppercase text-text
                     text-[20px] lg:text-[24px] xl:text-[28px]
                     mb-[20px] lg:mb-[40px]">
@@ -164,7 +177,13 @@ const Project_1: React.FC = () => {
                 </div>
             </section>
 
-            <section aria-labelledby="features-heading" className="relative flex flex-col gap-[20px]">
+            <section
+
+                ref={ref('features')}
+                className={cls('features', 'relative flex flex-col gap-[20px]')}
+                style={{ animationDelay: '200ms' }}
+
+                aria-labelledby="features-heading">
                 <img
                     src={GreenArc}
                     alt=""

@@ -4,6 +4,7 @@ import greenArrow from "../assets/icons/green-arrow.svg";
 import Container from "../components/Wrapper";
 import NavigationMenu from "../components/Navigation";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface ContactBlockProps {
     label: string;
@@ -39,18 +40,22 @@ const contacts = [
 
 const Contacts: React.FC = () => {
     const { t } = useTranslation();
+    const { ref, cls } = useScrollReveal(['heading', 'contacts', 'btn']);
+
     return (
         <footer>
             <Container>
-                <h2 id="contacts">
+                <h2
+                    ref={ref('heading')}
+                    className={cls('heading', '')}
+                    style={{ animationDelay: '100ms' }}
+                    id="contacts">
                     {t("nav.contacts")}
                 </h2>
 
-                <div className="relative flex flex-col 
-                    bg-primary rounded-[24px] min-h-[380px] 
-                    mb-[40px] overflow-hidden
-                    p-[20px] justify-between
-                    md:p-[60px] md:gap-[120px] xl:px-[100px]">
+                <div ref={ref('contacts')}
+                    className={cls('contacts', 'relative flex flex-col bg-primary rounded-[24px] gap-[30px] mb-[40px] overflow-hidden p-[20px] justify-between md:p-[60px] md:gap-[120px] xl:px-[100px]')}
+                    style={{ animationDelay: '300ms' }}>
 
                     <img
                         src={greenArrow}
@@ -86,7 +91,8 @@ const Contacts: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center w-full mb-[40px] md:mb-[60px]">
+                <div ref={ref('btn')} className={cls('btn', 'flex items-center w-full mb-[40px] md:mb-[60px]')}
+                    style={{ animationDelay: '100ms' }}>
                     <NavigationMenu variant="footer" />
                 </div>
             </Container>

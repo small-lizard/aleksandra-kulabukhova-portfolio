@@ -3,12 +3,14 @@ import { useTranslation } from "react-i18next";
 
 import Button from "../components/Button";
 import TechStackSection from "../components/TechStackSection";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 import Desktop from "../assets/images/desktop-project2.png";
 import Mobile from "../assets/images/mobile-project2.png";
 
 const Project_2: React.FC = () => {
     const { t } = useTranslation();
+    const { ref, cls } = useScrollReveal(['heading', 'desc', 'images', 'stack']);
 
     return (
         <article className="w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
@@ -19,7 +21,11 @@ const Project_2: React.FC = () => {
                 <div className="flex flex-col gap-[20px] md:justify-between 
                     mb-[20px] lg:mb-[30px] xl:mb-[30px] md:flex-row">
 
-                    <h3 className="font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]">
+                    <h3
+                        ref={ref('heading')}
+                        className={cls('heading', 'font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]')}
+                        style={{ animationDelay: '50ms' }}
+                    >
                         {t("projects.portfolio_website.title")}
                     </h3>
 
@@ -33,28 +39,29 @@ const Project_2: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col 
-                    md:w-[420px] lg:w-[540px] xl:w-[540px]
-                    gap-[15px] lg:gap-[20px]">
-
+                <div
+                    ref={ref('desc')}
+                    className={cls('desc', 'flex flex-col md:w-[420px] lg:w-[540px] xl:w-[540px] gap-[15px] lg:gap-[20px]')}
+                    style={{ animationDelay: '150ms' }}
+                >
                     <p className="text-text text-[14px] lg:text-[16px]">
                         {t("projects.portfolio_website.description")}
                     </p>
-
                     <p className="text-text-secondary text-[14px] lg:text-[16px]">
                         {t("projects.portfolio_website.goal")}
                     </p>
                 </div>
             </header>
 
-            <figure className="relative flex items-center justify-between m-0">
-
+            <figure
+                className='relative flex items-center justify-between m-0'
+                style={{ animationDelay: '300ms' }}
+            >
                 <a
                     href="https://habits-tracker-dusky.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-transform duration-300 ease-out inline-block"
-                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
                     onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
                     onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                 >
@@ -70,7 +77,6 @@ const Project_2: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-transform duration-300 ease-out hidden md:inline-block inline-block"
-                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
                     onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
                     onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                 >
@@ -80,7 +86,7 @@ const Project_2: React.FC = () => {
                         className="h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px] z-10 border-2 border-light"
                     />
                 </a>
-            </figure >
+            </figure>
 
             <div className="block md:hidden">
                 <Button
@@ -91,8 +97,13 @@ const Project_2: React.FC = () => {
                 />
             </div>
 
-            <section aria-labelledby="stack-heading">
-                <h4 id="stack-heading" className="font-delagothicone uppercase text-text
+            <section
+                ref={ref('stack')}
+                className={cls('stack', '')}
+                style={{ animationDelay: '200ms' }}
+                aria-labelledby="stack-heading-2"
+            >
+                <h4 id="stack-heading-2" className="font-delagothicone uppercase text-text
                     text-[20px] lg:text-[24px] xl:text-[28px]
                     mb-[20px] lg:mb-[40px]">
                     {t("projects.sections.stack")}
@@ -107,7 +118,7 @@ const Project_2: React.FC = () => {
                     />
                 </div>
             </section>
-        </article >
+        </article>
     );
 };
 

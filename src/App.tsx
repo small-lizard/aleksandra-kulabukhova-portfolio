@@ -2,6 +2,7 @@ import Contacts from "./sections/Contacts";
 import Hero from "./sections/Hero"
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills"
+import "./animations.css";
 
 function App() {
   return (
