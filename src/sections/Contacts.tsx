@@ -83,7 +83,7 @@ const Contacts: React.FC = () => {
                             className="text-dark bg-light font-bold w-full md:w-auto"
                         />
                         <Button
-                            text="Download CV"
+                            text={t("other.button_footer")}
                             href="/cv.pdf"
                             download
                             className="text-dark bg-accent font-bold w-full md:w-auto"

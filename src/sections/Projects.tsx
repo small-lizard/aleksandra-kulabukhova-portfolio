@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
                 <div
                     ref={ref('projects')}
                     className={cls('projects', 'flex flex-col gap-[30px] md:gap-[70px]')}
-                    style={{ animationDelay: '100ms' }}
+                    style={{ animationDelay: '50ms' }}
                 >
                     <Project_1 />
                     <Project_2 />

@@ -54,7 +54,7 @@ const Project_1: React.FC = () => {
 
                     <h3 ref={ref('heading')}
                         className={cls('heading', 'font-delagothicone uppercase text-accent text-[22px] md:text-[28px] lg:text-[32px] xl:text-[36px]')}
-                        style={{ animationDelay: '100ms' }}>
+                        style={{ animationDelay: '50ms' }}>
                         {t("projects.habit_tracker.title")}
                     </h3>
 
@@ -199,8 +199,8 @@ const Project_1: React.FC = () => {
 
                     <div className="w-full lg:max-w-[670px] xl:max-w-[670px]">
                         <FeatureCard
-                            title="Authentication"
-                            text={t("projects.habit_tracker.features.auth")}
+                            title={t("projects.habit_tracker.features.title.auth")}
+                            text={t("projects.habit_tracker.features.desc.auth")}
                             index="01"
                             image={Otp}
                         />
@@ -208,18 +208,18 @@ const Project_1: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-3">
-                    <FeatureCard title="PWA support" text={t("projects.habit_tracker.features.pwa")} index="02" />
-                    <FeatureCard title="Habit tracking" text={t("projects.habit_tracker.features.tracking")} index="03" />
-                    <FeatureCard title="Secure user data" text={t("projects.habit_tracker.features.security")} index="04" />
+                    <FeatureCard title={t("projects.habit_tracker.features.title.pwa")} text={t("projects.habit_tracker.features.desc.pwa")} index="02" />
+                    <FeatureCard title={t("projects.habit_tracker.features.title.tracking")}  text={t("projects.habit_tracker.features.desc.tracking")} index="03" />
+                    <FeatureCard title={t("projects.habit_tracker.features.title.security")}  text={t("projects.habit_tracker.features.desc.security")} index="04" />
                     <FeatureCard
-                        title="Internationalization (i18n)"
-                        text={t("projects.habit_tracker.features.i18n")}
+                        title={t("projects.habit_tracker.features.title.i18n")}
+                        text={t("projects.habit_tracker.features.desc.i18n")}
                         index={<><span className="inline lg:hidden">05</span><span className="hidden lg:inline">06</span></>}
                         className="md:order-4 lg:order-5 lg:col-span-1"
                     />
                     <FeatureCard
-                        title="Validation"
-                        text={t("projects.habit_tracker.features.validation")}
+                        title={t("projects.habit_tracker.features.title.validation")}
+                        text={t("projects.habit_tracker.features.desc.validation")}
                         index={<><span className="inline lg:hidden">06</span><span className="hidden lg:inline">05</span></>}
                         image={Validation}
                         className="md:order-5 md:col-span-2 lg:order-4 lg:col-span-2"

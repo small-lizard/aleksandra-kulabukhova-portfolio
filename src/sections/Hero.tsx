@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import Button from "../components/Button";
-import pinkEye from "../assets/icons/pink-eye.svg";
 import yellowSmile from "../assets/icons/yellow-smile.svg";
 import violetFlower from "../assets/icons/violet-flower.svg";
 import Container from "../components/Wrapper";
 import NavigationMenu from "../components/Navigation";
 import MobileMenu from "../components/MobileMenu";
 import { useTranslation } from "react-i18next";
+import { useMagneticRepel } from "../components/useMagneticRepel";
+import EyeIcon from "../components/EyeIcon";
 
 const Hero: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,8 +19,12 @@ const Hero: React.FC = () => {
     const desc2Ref = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
     const flowerRef = useRef<HTMLImageElement>(null);
-    const eyeRef = useRef<HTMLImageElement>(null);
+    const eyeRef = useRef<SVGSVGElement>(null);
     const smileRef = useRef<HTMLImageElement>(null);
+
+    const flowerMagnet = useMagneticRepel(0.35, 130);
+    const eyeMagnet = useMagneticRepel(0.35, 130)
+    const smileMagnet = useMagneticRepel(0.35, 130);
 
     const [visible, setVisible] = useState<Record<string, boolean>>({});
 
@@ -54,7 +59,7 @@ const Hero: React.FC = () => {
         return () => observers.forEach(o => o.disconnect());
     }, []);
 
-    const cls = (key: string, base: string, anim: 'fade-up' | 'scale-bounce') =>
+    const cls = (key: string, base: string, anim: 'fade-up' | 'fade-up-rotate-ccw' | 'scale-bounce') =>
         `${base} ${anim}${visible[key] ? ' visible' : ''}`;
 
     const headingSpan = "font-delagothicone uppercase leading-[0.92] text-[32px] md:text-[38px] lg:text-[50px] xl:text-[60px] tracking-[-0.02em]";
@@ -95,22 +100,28 @@ const Hero: React.FC = () => {
                                 </span>
 
                                 <img
-                                    ref={flowerRef}
+                                    ref={el => {
+                                        flowerRef.current = el;
+                                        flowerMagnet(el);
+                                    }}
+
                                     src={violetFlower}
                                     alt=""
                                     aria-hidden="true"
-                                    className={`${decorativeImg} right-[-12%] top-[6%] md:right-[20%] lg:right-[30%] md:top-[-80%] lg:top-[-50%] spin-settle${visible['flower'] ? ' visible' : ''}`}
+                                    className={`${decorativeImg} right-[-12%] top-[10%] md:right-[20%] lg:right-[30%] md:top-[-80%] lg:top-[-50%] spin-settle${visible['flower'] ? ' visible' : ''}`}
                                     style={{ animationDelay: '500ms' }}
                                 />
 
-                                <img
-                                    ref={eyeRef}
-                                    src={pinkEye}
-                                    alt=""
+                                <EyeIcon
+                                    ref={el => {
+                                        eyeRef.current = el;
+                                       eyeMagnet(el)
+                                    }}
                                     aria-hidden="true"
                                     className={`${decorativeImg} hidden md:block md:left-[8%] lg:left-[10%] xl:left-[20%] md:top-[150px] lg:top-[200px] fade-up-rotate-ccw${visible['eye'] ? ' visible' : ''}`}
                                     style={{ animationDelay: '400ms' }}
-                                />
+                                /> 
+                                
                             </h1>
 
                             <div className="relative mt-[50px] md:mt-[30px] ml-auto md:w-[410px] lg:w-[520px] lg:mr-[10px] xl:mr-[120px]">
@@ -132,7 +143,10 @@ const Hero: React.FC = () => {
                                 </div>
 
                                 <img
-                                    ref={smileRef}
+                                    ref={el => {
+                                        smileRef.current = el;
+                                        smileMagnet(el);
+                                    }}
                                     src={yellowSmile}
                                     alt=""
                                     aria-hidden="true"

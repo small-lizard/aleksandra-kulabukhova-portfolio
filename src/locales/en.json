@@ -14,7 +14,8 @@
     "other": {
         "api": "I design and implement REST APIs: working with routing, handling HTTP requests, validating data, structuring endpoints, and building client–server interaction.",
         "principles": "I follow SOLID principles and OOP, using design patterns where they improve maintainability and scalability.",
-        "principles_2": "I design applications with a focus on separation of concerns, maintainability, and scalability."
+        "principles_2": "I design applications with a focus on separation of concerns, maintainability, and scalability.",
+        "button_footer": "Download CV"
     },
     "projects": {
         "sections": {
@@ -25,20 +26,31 @@
             "title": "Habit Tracker",
             "description": "An application for tracking habits with user authentication, habit management, and progress statistics.",
             "goal": "The goal of the project was to create a lightweight and fast-to-use habit tracking app.",
-            "quality":"Written from scratch, without code generation",
+            "quality": "Written from scratch, without code generation",
             "features": {
-                "auth": "User registration with email verification via a one-time OTP code and limited number of attempts.",
-                "pwa": "The application is configured as a PWA and can be used on mobile devices like a native app.",
-                "tracking": "Habit tracking interface with daily completion marking and progress visualization.",
-                "security": "Secure user data storage: password and OTP hashing using bcrypt.",
-                "i18n": "Support for multiple languages (Russian and English) with interface switching.",
-                "validation": "Client-side and server-side validation using React Hook Form and Zod."
+                "title": {
+                    "auth": "Authentication",
+                    "pwa": "PWA support",
+                    "tracking": "Habit tracking",
+                    "security": "Secure user data",
+                    "i18n": "Internationalization",
+                    "validation": "Validation"
+                },
+                "desc": {
+                    "auth": "User registration with email verification via a one-time OTP code and limited number of attempts.",
+                    "pwa": "The application is configured as a PWA and can be used on mobile devices like a native app.",
+                    "tracking": "Habit tracking interface with daily completion marking and progress visualization.",
+                    "security": "Secure user data storage: password and OTP hashing using bcrypt.",
+                    "i18n": "Support for multiple languages (Russian and English) with interface switching.",
+                    "validation": "Client-side and server-side validation using React Hook Form and Zod."
+                }
             }
         },
         "portfolio_website": {
             "title": "Portfolio Website",
             "description": "This website was developed using AI tools. The project structure and logic were defined manually, after which neural networks were used to generate components and styles.",
-            "goal": "Only the final adjustments were made manually."
+            "goal": "Only the final adjustments were made manually.",
+            "tooltip":"You're already here!"
         }
     }
 }

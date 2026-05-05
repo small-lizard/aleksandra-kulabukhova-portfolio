@@ -16,7 +16,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
     return (
         <div
             className={`${width}
-            h-[400px] p-[20px]
+            h-[410px] p-[20px]
             lg:h-[440px] lg:p-[40px]
             rounded-[20px]
             ${isActive

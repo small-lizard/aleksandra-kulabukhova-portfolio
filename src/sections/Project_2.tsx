@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Button from "../components/Button";
@@ -11,6 +11,41 @@ import Mobile from "../assets/images/mobile-project2.png";
 const Project_2: React.FC = () => {
     const { t } = useTranslation();
     const { ref, cls } = useScrollReveal(['heading', 'desc', 'images', 'stack']);
+
+    const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null);
+
+    const showTooltip = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+
+        setTooltip({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        });
+
+        setTimeout(() => {
+            setTooltip(null);
+        }, 2000);
+    };
+
+    const Tooltip = ({ tooltip }: any) => {
+        if (!tooltip) return null;
+
+        return (
+            <div
+                className="absolute z-20 font-delagothicone text-[10px] md:text-[14px]
+      text-background bg-accent
+      p-[20px] rounded-[15px] whitespace-nowrap"
+                style={{
+                    left: tooltip.x,
+                    top: tooltip.y,
+                    transform: "translate(-50%, -120%)",
+                    pointerEvents: "none",
+                }}
+            >
+                {t("projects.portfolio_website.tooltip")}
+            </div>
+        );
+    };
 
     return (
         <article className="w-full mx-auto flex flex-col border-[2px] border-light rounded-[30px]
@@ -53,40 +88,36 @@ const Project_2: React.FC = () => {
                 </div>
             </header>
 
-            <figure
-                className='relative flex items-center justify-between m-0'
-                style={{ animationDelay: '300ms' }}
+            <div
+                className="relative flex items-center justify-between m-0"
+                onClick={showTooltip}
             >
-                <a
-                    href="https://habits-tracker-dusky.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-transform duration-300 ease-out inline-block"
+                <Tooltip tooltip={tooltip} />
+
+                <div className="inline-block transition-transform duration-300 ease-out "
+                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
                     onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
                     onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                 >
                     <img
                         src={Desktop}
                         alt="Десктопная версия трекера привычек"
-                        className="w-full h-auto md:h-[clamp(200px,35vw,490px)] md:w-auto object-cover rounded-[10px] z-10 border-2 border-light"
+                        className="screen w-full h-auto md:h-[clamp(200px,35vw,490px)] md:w-auto object-cover rounded-[10px] border-2 border-light"
                     />
-                </a>
+                </div>
 
-                <a
-                    href="https://habits-tracker-dusky.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-transform duration-300 ease-out hidden md:inline-block inline-block"
+                <div
+                    className="hidden md:inline-block inline-block transition-transform duration-300 ease-out "
+                    style={{ '--tw-scale-x': '1.02', '--tw-scale-y': '1.02' } as React.CSSProperties}
                     onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
-                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-                >
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}>
                     <img
                         src={Mobile}
                         alt="Мобильная версия трекера привычек"
-                        className="h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px] z-10 border-2 border-light"
+                        className="screen h-[clamp(200px,35vw,490px)] w-auto object-cover rounded-[10px] border-2 border-light"
                     />
-                </a>
-            </figure>
+                </div>
+            </div>
 
             <div className="block md:hidden">
                 <Button

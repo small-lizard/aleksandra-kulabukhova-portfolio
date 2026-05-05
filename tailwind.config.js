@@ -19,11 +19,11 @@ export default {
         light: "#EEEEEE",
         text: {
           DEFAULT: "#EEEEEE",
-          secondary: "#6e6a6a",
+          secondary: "#757576",
           accent: "#B7FF56",
         },
         background: {
-          DEFAULT: "#201F1F",
+          DEFAULT: "#1e1e1e",
         },
       },
     },

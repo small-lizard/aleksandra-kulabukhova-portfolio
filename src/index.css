@@ -25,6 +25,7 @@ a,
 .quality-mark,
 button *,
 button,
+.screen,
 [role="button"] * {
   cursor: url('./assets/icons/pointer.svg') 0 0, pointer !important;
 }
