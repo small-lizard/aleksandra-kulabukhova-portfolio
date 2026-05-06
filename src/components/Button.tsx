@@ -1,4 +1,5 @@
 import React from "react";
+import greenArrow from "../assets/icons/green-arrow.svg";
 
 type ButtonVariant = "primary" | "secondary";
 
@@ -46,7 +47,7 @@ const Button: React.FC<ButtonProps> = ({
             <span>{text}</span>
             {withIcon && variant === "primary" && (
                 <img
-                    src="/src/assets/icons/green-arrow.svg"
+                    src={greenArrow}
                     alt=""
                     aria-hidden="true"
                     className="w-[27px] h-[27px]"
