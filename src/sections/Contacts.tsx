@@ -5,6 +5,9 @@ import Container from "../components/Wrapper";
 import NavigationMenu from "../components/Navigation";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import i18n from "../i18n";
+import resumeEn from "../assets/resumes/resume-en.pdf";
+import resumeRu from "../assets/resumes/resume-ru.pdf";
 
 interface ContactBlockProps {
     label: string;
@@ -32,15 +35,24 @@ const ContactBlock: React.FC<ContactBlockProps> = ({ label, value, href }) => {
     );
 };
 
-const contacts = [
-    { label: "Telegram", value: "@small-lizard", href: "https://t.me/small_lizard" },
-    { label: "WhatsApp", value: "+79288825399", href: "https://api.whatsapp.com/send?phone=79288825399" },
-    { label: "Email", value: "a.kulabukhova001@gmail.com", href: "mailto:a.kulabukhova001@gmail.com" },
-];
-
 const Contacts: React.FC = () => {
     const { t } = useTranslation();
     const { ref, cls } = useScrollReveal(['heading', 'contacts', 'btn']);
+
+    const resumeLinks = {
+        en: resumeEn,
+        ru: resumeRu,
+    };
+
+    const contacts = [
+        { label: "Telegram", value: "@small-lizard", href: "https://t.me/small_lizard" },
+        { label: "WhatsApp", value: "+79288825399", href: "https://api.whatsapp.com/send?phone=79288825399" },
+        { label: "Email", value: "a.kulabukhova001@gmail.com", href: "mailto:a.kulabukhova001@gmail.com" },
+    ];
+
+    const lang = (i18n.resolvedLanguage ?? "ru") as "en" | "ru";
+
+    const resumeLink = resumeLinks[lang];
 
     return (
         <footer>
@@ -84,7 +96,7 @@ const Contacts: React.FC = () => {
                         />
                         <Button
                             text={t("other.button_footer")}
-                            href="/cv.pdf"
+                            href={resumeLink}
                             download
                             className="text-dark bg-accent font-bold w-full md:w-auto"
                         />
